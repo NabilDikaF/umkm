@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\kategori;
 
 class KategoriController extends Controller
 {
@@ -12,6 +13,9 @@ class KategoriController extends Controller
     }
 
     public function admin() {
-        return view('admin-kategori');
+
+        $query = kategori::all();
+        // dd($query);
+        return view('admin-kategori', compact('query'));
     }
 }
